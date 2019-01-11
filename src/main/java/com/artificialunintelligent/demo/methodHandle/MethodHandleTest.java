@@ -26,23 +26,6 @@ public class MethodHandleTest {
         for (Integer data : dataList){
             System.out.println(data);
         }
-
-        List<Integer> list = new ArrayList<>(10);
-        list.add(0, 3);
-        list.add(1, 2);
-        list.add(2, 1);
-        System.out.println(list);
-
-        list.set(0, 13);
-        list.set(1, 12);
-        list.add(0, 4);
-        System.out.println(list);
-
-        Set<Integer> set = new HashSet<>();
-        set.add(0);
-        set.add(1);
-        set.add(2);
-        System.out.println(set);
     }
 
     private static void transform(List<Integer> dataList, MethodHandle handle) throws Throwable {

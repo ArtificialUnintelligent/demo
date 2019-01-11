@@ -18,24 +18,24 @@ public class WorkTest extends ArtificialUnintelligentApplicationTests{
     @Test
     public void workTest(){
         //直接调用
-//        Worker w = new WorkerImpl();
+        Worker w = new WorkerImpl();
         //静态代理
-//        Worker worker1 = new WorkProxy(w);
-//        worker1.doWork();
+        Worker worker1 = new WorkProxy(w);
+        worker1.doWork();
 
         //动态代理
-//        DynamicProxy dynamicProxy = new DynamicProxy();
-//        Worker worker2 = (Worker) dynamicProxy.getProxy(w);
-//        worker2.doWork();
-//        byte[] classFile = ProxyGenerator.generateProxyClass("$Proxy0", WorkerImpl.class.getInterfaces());
-//        String path = "./WorkerProxy.class";
-//        try {
-//            FileOutputStream fos = new FileOutputStream(path);
-//            fos.write(classFile);
-//            fos.flush();
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
+        DynamicProxy dynamicProxy = new DynamicProxy();
+        Worker worker2 = (Worker) dynamicProxy.getProxy(w);
+        worker2.doWork();
+        byte[] classFile = ProxyGenerator.generateProxyClass("$Proxy0", WorkerImpl.class.getInterfaces());
+        String path = "./WorkerProxy.class";
+        try {
+            FileOutputStream fos = new FileOutputStream(path);
+            fos.write(classFile);
+            fos.flush();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         //cglib代理
         OtherWorker ow = new OtherWorker();
@@ -55,11 +55,11 @@ public class WorkTest extends ArtificialUnintelligentApplicationTests{
 
         try {
             GeneratorStrategy strategy = enhancer.getStrategy();
-            byte[] classFile = strategy.generate(enhancer);
-            String path = "./OtherWorkerProxy.class";
+            byte[] cf = strategy.generate(enhancer);
+            String p = "./OtherWorkerProxy.class";
             try {
-                FileOutputStream fos = new FileOutputStream(path);
-                fos.write(classFile);
+                FileOutputStream fos = new FileOutputStream(p);
+                fos.write(cf);
                 fos.flush();
             }catch (Exception e){
                 e.printStackTrace();
@@ -67,9 +67,6 @@ public class WorkTest extends ArtificialUnintelligentApplicationTests{
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-//        wp.doWorkA();
-//        wp.toString();
 
 
         //随便写的一个方法，用来查看反射机制拿到的接口名
