@@ -14,10 +14,6 @@ public class ArtificialUnintelligentApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		Worker worker = new WorkerImpl();
-		worker.doWork();
-		Worker worker1 = new WorkProxy(worker);
-		worker1.doWork();
 	}
 }
 
