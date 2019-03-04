@@ -11,6 +11,7 @@ import sun.misc.ProxyGenerator;
 /**
  * @Author: ArtificialUnintelligent
  * @Description:
+ * 对比：https://jinnianshilongnian.iteye.com/blog/1613222
  * @Date: 5:31 PM 2018/12/24
  */
 public class WorkTest extends ArtificialUnintelligentApplicationTests{
