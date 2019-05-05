@@ -33,14 +33,13 @@ public class ThreadPoolDemo {
     public static void main(String[] args) {
         ThreadPoolDemo threadPoolDemo = new ThreadPoolDemo();
         Demo1 demo1 = threadPoolDemo.getDemo();
-        ExecutorService e = Executors.newFixedThreadPool(5);
         ExecutorService executorService = new ThreadPoolExecutor(5, 20, 0L,
             TimeUnit.MILLISECONDS,
             new LinkedBlockingDeque<>(1024),
             Executors.defaultThreadFactory(),
             new AbortPolicy());
         for (int i = 0; i < 10; i++){
-            executorService.execute(demo1);
+            executorService.submit(demo1);
         }
         executorService.shutdown();
     }
