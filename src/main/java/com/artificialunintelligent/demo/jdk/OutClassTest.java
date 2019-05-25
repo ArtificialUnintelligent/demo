@@ -1,5 +1,7 @@
 package com.artificialunintelligent.demo.jdk;
 
+import static java.lang.System.*;
+
 /**
  * @author:artificialunintelligent
  * @Date:2019-05-05
@@ -50,7 +52,7 @@ public class OutClassTest {
             System.out.println("InnerClass call outer static function");
             // 调用外部类的静态方法
             test();
-            System.out.println(c);
+            out.println(c);
         }
 
         public  String getKey() {
